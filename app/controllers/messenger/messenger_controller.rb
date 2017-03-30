@@ -56,6 +56,10 @@ module Messenger
                                             { attachments: [
                                               :type,
                                               :url,
+                                              {payload: [
+                                                :url,
+                                                :sticker_id,
+                                                ] },
                                               { coordinates: :lat },
                                               { coordinates: :long }
                                             ] },
