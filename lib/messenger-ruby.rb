@@ -21,7 +21,6 @@ end
 
 require "messenger/engine"
 require "messenger/params"
-
 require "messenger/components/elements/text"
 require "messenger/components/elements/image"
 require "messenger/components/elements/button"
