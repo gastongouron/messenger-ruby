@@ -43,6 +43,14 @@ safe_params = params.permit(:object,
                                   entry: [
                                       :id,
                                       :time,
+                                      :uid,
+                                      changes: [
+                                        :field,
+                                        { value: { to: { data: [:email, :id,:name] } },
+                                                   :message,
+                                                   {from: [:email, :id,:name] },
+                                                   :id}
+                                      ]
                                       messaging: [
                                           { sender: :id },
                                           :timestamp,
@@ -105,6 +113,14 @@ safe_params = params.permit(:object,
                                       entry: [
                                           :id,
                                           :time,
+                                          :uid,
+                                          changes: [
+                                            :field,
+                                            { value: { to: { data: [:email, :id,:name] } },
+                                                       :message,
+                                                       {from: [:email, :id,:name] },
+                                                       :id}
+                                          ]
                                           messaging: [
                                               { sender: :id },
                                               :timestamp,
