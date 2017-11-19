@@ -38,69 +38,8 @@ module Messenger
       params["hub.verify_token"] == Messenger.config.verify_token
     end
 
-    # def fb_params
-    #   safe_params = params.permit!
-    #   # safe_params = params.permit(:object,
-    #   #                             entry: [
-    #   #                                 :id,
-    #   #                                 :time,
-    #   #                                 messaging: [
-    #   #                                   { sender: :id },
-    #   #                                   :timestamp,
-    #   #                                   { recipient: :id },
-    #   #                                   message:
-    #   #                                     [
-    #   #                                       :mid,
-    #   #                                       :seq,
-    #   #                                       { sticker: :id },
-    #   #                                       :text,
-    #   #                                       :nlp,
-    #   #                                       { attachments: [
-    #   #                                         :type,
-    #   #                                         :url,
-    #   #                                         {payload: [
-    #   #                                           :url,
-    #   #                                           :sticker_id,
-    #   #                                           ] },
-    #   #                                         { coordinates: :lat },
-    #   #                                         { coordinates: :long }
-    #   #                                       ] },
-    #   #                                       { quick_reply: :payload },
-    #   #                                       :is_echo,
-    #   #                                       { app: :id },
-    #   #                                       :metadata
-    #   #                                     ],
-    #   #                                   read: [
-    #   #                                     :watermark,
-    #   #                                     :seq
-    #   #                                   ],
-    #   #                                   postback: :payload,
-    #   #                                   optin: :ref,
-    #   #                                   delivery: [
-    #   #                                     { mids: [] },
-    #   #                                     :watermark,
-    #   #                                     :seq
-    #   #                                   ],
-    #   #                                   account_linking: [
-    #   #                                     :status, :authorization_code
-    #   #                                   ]
-    #   #                                 ]]
-    #   #                                )
-    #   Params.new(safe_params)
-    # end
-
-    # def permit!
-    #   each_pair do |key, value|
-    #     convert_hashes_to_parameters(key, value)
-    #     self[key].permit! if self[key].respond_to? :permit!
-    #   end
-
-    #   @permitted = true
-    #   self
-    # end
-
     def fb_params
-      safe_params = params.permit(:object,
+safe_params = params.permit(:object,
                                   entry: [
                                       :id,
                                       :time,
@@ -225,6 +164,7 @@ module Messenger
                                           ]]
                                   ]
       )
+      Params.new(safe_params)
       Params.new(safe_params)
     end
 

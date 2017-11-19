@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["justyn.jozwiak@netguru.pl", "magda.wisniewska@netguru.co"]
 
   spec.summary       = 'A library for supporting implementation of Facebook Messenger Bots.'
-  spec.homepage      = 'https://github.com/netguru/messenger-ruby'
+  spec.homepage      = 'https://github.com/gastongouron/messenger-ruby'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
