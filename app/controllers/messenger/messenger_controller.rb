@@ -39,18 +39,10 @@ module Messenger
     end
 
     def fb_params
-safe_params = params.permit(:object,
+      safe_params = params.permit(:object,
                                   entry: [
                                       :id,
                                       :time,
-                                      :uid,
-                                      changes: [
-                                        :field,
-                                        { value: { to: { data: [:email, :id,:name] } },
-                                                   :message,
-                                                   {from: [:email, :id,:name] },
-                                                   :id}
-                                      ]
                                       messaging: [
                                           { sender: :id },
                                           :timestamp,
@@ -172,7 +164,6 @@ safe_params = params.permit(:object,
                                           ]]
                                   ]
       )
-      Params.new(safe_params)
       Params.new(safe_params)
     end
 
